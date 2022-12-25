@@ -6,3 +6,6 @@
 
 #Ignoring all created csv files
 *.csv
+
+# Ignoring all .bak files
+*.bak
