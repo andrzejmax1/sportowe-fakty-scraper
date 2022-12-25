@@ -56,13 +56,13 @@ while article_num < 1037277:
         with open('sf_scrape.csv', 'a', newline='', encoding="utf-8") as csvfile:
             if is_header == False:
                 fieldnames = ['ID', 'Author', 'Category',
-                              "About", "Year", "Month", "Day", "Hour", "Comments", "Snippet"]
+                              "About", "Year", "Month", "Day", "Hour", "Comments", "Snippet", "URL"]
                 header_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 header_writer.writeheader()
                 is_header = True
 
             row_data = [idx, author, category, about,
-                        year, month, day, hour, comments_count, snippet]
+                        year, month, day, hour, comments_count, snippet, url]
             writer = csv.writer(csvfile, delimiter=',')
             writer.writerow(row_data)
 
