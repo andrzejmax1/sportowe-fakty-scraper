@@ -3,3 +3,6 @@
 
 # Ignoring all subfolders
 */*
+
+#Ignoring all created csv files
+*.csv
