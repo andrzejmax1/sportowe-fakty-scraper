@@ -12,4 +12,5 @@ Using this script, you can scrape such informations as:
 
 Please see **"requirements.txt"** for essential dependencies
 
-The script by default scrapes all the pages from the **beginning** up to page **1 037 277**. It can easily be changed in the main file -> **sf_scrape.py**
+The script by default scrapes all the pages from the **beginning** up to page **1 037 277**. It can easily be changed in the main file -> **sf_scrape.py**    
+If a subpage is non-existent, the next article will be fetched instead.
