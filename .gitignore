@@ -1,0 +1,5 @@
+# Ignoring Jupyter Notebook files
+*.ipynb
+
+# Ignoring all subfolders
+*/*
