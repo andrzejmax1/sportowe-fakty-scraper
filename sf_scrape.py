@@ -3,7 +3,9 @@ import re
 import csv
 from bs4 import BeautifulSoup
 
-is_header = False
+
+# Configuration
+has_header = False # Set to "False" if running for the first time in a given file, "True" otherwise
 article_num = 1
 idx = 0
 
@@ -54,12 +56,12 @@ while article_num < 1037277:
         # Writing to a file
 
         with open('sf_scrape.csv', 'a', newline='', encoding="utf-8") as csvfile:
-            if is_header == False:
+            if has_header == False:
                 fieldnames = ['ID', 'Author', 'Category',
                               "About", "Year", "Month", "Day", "Hour", "Comments", "Snippet", "URL"]
                 header_writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 header_writer.writeheader()
-                is_header = True
+                has_header = True
 
             row_data = [idx, author, category, about,
                         year, month, day, hour, comments_count, snippet, url]
@@ -71,6 +73,11 @@ while article_num < 1037277:
         article_num += 1
 
     except AttributeError:
-        print(f"Artykuł {article_num} nie istnieje lub został usunięty")
+        print(f"The article #{article_num} doesn't exist or has been deleted")
+        article_num += 1
+        continue
+    except IndexError:
+        print(
+            f"The subpage #{article_num} is not an article or has been modified")
         article_num += 1
         continue
